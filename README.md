@@ -1,7 +1,7 @@
 # combine_xyz_structures
 building script for combining xyz structures
 
-A lightweight Python utility to merge two atomic structures—such as a magnesium nanoparticle (Mg NP) and a CPDT molecule—into a single `.xyz` file.
+A lightweight Python utility to merge two atomic structures such as a magnesium nanoparticle (Mg NP) and a CPDT molecule into a single `.xyz` file.
 
 ## Description
 
@@ -13,12 +13,12 @@ This script provides a simple and flexible tool for:
 
 # Use Case
 
-Designed for computational studies involving nanoparticle–molecule interactions (e.g., Mg NPs and CPDT molecules), particularly for simulations related to strong coupling phenomena, hot carrier generation, and optical response modeling.
+Designed for computational studies involving nanoparticle–molecule interactions (e.g., Mg NPs and CPDT molecules), particularly for simulations related to strong coupling phenomena, hot carrier generation, and optical response modeling. This includes investigation of the effects of molecular number, orientation and distance (gap between NP and molecule) on the strength of coupling and hot carrier dynamics.
 
 # Ideal for workflows involving:
 
 - Structure setup for **DFT** and **TDDFT** simulations (e.g., using GPAW).
-- Visualization with tools like VMD, ASE GUI, or Avogadro.
+- Visualization with tools like ASE GUI, VMD...
 - Rapid prototyping in data-driven materials design.
 
 This script was developed as part of the computational workflow for the following research article:
