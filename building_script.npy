@@ -1,1 +1,49 @@
+from ase import Atoms
+from gpaw.cluster import Cluster
+from ase.io import write
+from ase.build import molecule
+import numpy as np
+
+structure_in = 'fake_mg_170_rat_8.00.xyz'
+structure_out = structure_in[:-4] 
+molecule_in = 'rlx-mol-CPDT-aligned.xyz'
+
+
+gaps = [2.0, 3.0]
+for gap in gaps:
+        # Load the nanoparticle and molecule objects
+        nanop = Cluster('%s' % structure_in)
+        p = nanop.get_positions()
+        
+        mol = Cluster('%s' % molecule_in)
+        pm = mol.get_positions()
+        
+        mol_copy = mol.copy()
+        #mol_copy.rotate(180.0,'z',center='COP')
+        pmc = mol_copy.get_positions()
+        
+        part_edge1 = p[[12, 13]]
+        part_edge2 = p[[160, 161]]
+        mol_edge_S = pm[[3, 9]]
+        mol_copy_edge_S = pmc[[13, 15]]
+        
+        pos_edge1 = np.sum(part_edge1,axis=0)/2
+        pos_edge2 = np.sum(part_edge2,axis=0)/2
+        mol_edge1 = np.sum(mol_edge_S,axis=0)/2
+        mol_copy_edge1 = np.sum(mol_copy_edge_S,axis=0)/2
+        #print(mol_copy_edge1)
+        #mol_copy.rotate(180,'z',center=(mol_copy_edge1))
+        
+        mol.translate( pos_edge1 - mol_edge1 - (gap,0,0) )
+        mol_copy.translate( pos_edge2 - mol_copy_edge1 + (gap,0,0) )
+        
+        # Construct an object from nanoparticle + molecule
+        atoms = nanop + mol + mol_copy
+        atoms.set_pbc(False)
+        #atoms.center(vacuum=10.0)
+        
+        # Write it to a .xyz file
+        write('rlx-struct-mg157-gap-{}-2CPDT-asymmetric.xyz'.format(gap), atoms)
+
+
 
