@@ -1,4 +1,4 @@
-# combine_xyz_structures
+# combine-xyz-structures
 building script for combining xyz structures
 
 A lightweight Python utility to merge two atomic structures such as a magnesium nanoparticle (Mg NP) and a CPDT molecule into a single `.xyz` file.
