@@ -3,6 +3,12 @@ building script for combining xyz structures
 
 A lightweight Python utility to merge two atomic structures such as a magnesium nanoparticle (Mg NP) and a CPDT molecule into a single `.xyz` file.
 
+# Added files
+building_script.npy : Python script to merge two .xyz structure files.
+fake_mg_170_rat_8.00.xyz : 	atomic structure of Mg nanoparticle.
+rlx-mol-CPDT-aligned.yxz : atomic structure of CPDT molecule.
+rlx-struct-mg170-gap-3.0-2CPDT-asymmetric.xyz : Output file generated; Contains the merged structures.
+
 ## Description
 
 This script provides a simple and flexible tool for:
